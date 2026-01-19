@@ -89,7 +89,7 @@ function App() {
       </form>
 
       {/* Liste des articles */}
-      <div>
+      <div className="post-list">
         {posts.map(post => (
           <div key={post.id} style={{ borderBottom: '1px solid #eee', padding: '15px 0' }}>
             <h2 style={{ color: '#2c3e50' }}>{post.title}</h2>
