@@ -66,7 +66,7 @@ function App() {
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', fontFamily: 'Arial' }}>
-      <h1>🇨🇦 Mon Blog Destination Québec</h1>
+      <h1>Blog Nest + ReactJS CRUD system</h1>
 
       {/* Formulaire d'ajout */}
       <form onSubmit={handleSubmit} style={{ marginBottom: '40px', padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
