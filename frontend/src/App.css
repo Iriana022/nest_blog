@@ -79,3 +79,14 @@ button:hover {
   margin-top: 0;
   color: #0f172a;
 }
+
+.delete-btn {
+  background-color: #ef4444; /* Rouge */
+  margin-top: 10px;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}

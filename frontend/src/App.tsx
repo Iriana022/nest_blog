@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './App.css';
 import axios from 'axios'
 
 // On définit la forme d'un article pour que TS nous aide
@@ -65,25 +66,23 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', fontFamily: 'Arial' }}>
+    <div className="App" style={{ maxWidth: '800px', margin: '0 auto', padding: '20px', fontFamily: 'Arial' }}>
       <h1>Blog Nest + ReactJS CRUD system</h1>
 
       {/* Formulaire d'ajout */}
-      <form onSubmit={handleSubmit} style={{ marginBottom: '40px', padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
+      <form onSubmit={handleSubmit} className="post-form" >
         <h3>Nouvel Article</h3>
         <input 
           placeholder="Titre (min 5 car.)" 
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          style={{ display: 'block', width: '100%', marginBottom: '10px', padding: '8px' }}
         />
         <textarea 
           placeholder="Contenu" 
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          style={{ display: 'block', width: '100%', marginBottom: '10px', padding: '8px', height: '100px' }}
         />
-        <button type="submit" style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <button type="submit" >
           Publier l'article
         </button>
       </form>
@@ -91,15 +90,15 @@ function App() {
       {/* Liste des articles */}
       <div className="post-list">
         {posts.map(post => (
-          <div key={post.id} style={{ borderBottom: '1px solid #eee', padding: '15px 0' }}>
-            <h2 style={{ color: '#2c3e50' }}>{post.title}</h2>
+          <div key={post.id} className='post-card' >
+            <h2 >{post.title}</h2>
             <p>{post.content}</p>
             <small>Publié le : {new Date(post.createdAt).toLocaleDateString()}</small>
-            <button 
+            &emsp;<button 
+            className="delete-btn"
             onClick={() => handleDelete(post.id)}
-            style={{ marginLeft: '20px', color: 'red', cursor: 'pointer', border: 'none', background: 'none' }}
           >
-            [Supprimer]
+            Supprimer
           </button>
 
           <button 
