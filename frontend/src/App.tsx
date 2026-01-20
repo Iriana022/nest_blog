@@ -18,7 +18,7 @@ function App() {
   // 1. Charger les articles au démarrage
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/posts')
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`)
       setPosts(response.data)
     } catch (error) {
       console.error("Erreur Backend:", error)
@@ -33,7 +33,7 @@ function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:3000/posts', { title, content })
+      await axios.post(`${import.meta.env.VITE_API_URL}/posts`, { title, content })
       setTitle('')
       setContent('')
       fetchPosts() // Rafraîchir la liste
@@ -45,7 +45,7 @@ function App() {
   const handleDelete =  async(id: number) => {
     if(window.confirm("Supprimer cette article?")){
       try{
-        await axios.delete(`http://localhost:3000/posts/${id}`)
+        await axios.delete(`${import.meta.env.VITE_API_URL}/posts/${id}`)
         fetchPosts()
       }catch(error){
         alert('Erreur lors de la suppression')
@@ -57,7 +57,7 @@ function App() {
     const newTitle = window.prompt("Nouveau titre :", currentTitle);
     if (newTitle && newTitle !== currentTitle) {
       try {
-        await axios.patch(`http://localhost:3000/posts/${id}`, { title: newTitle });
+        await axios.patch(`${import.meta.env.VITE_API_URL}/posts/${id}`, { title: newTitle });
         fetchPosts();
       } catch (error) {
         alert("Erreur lors de la modification");
