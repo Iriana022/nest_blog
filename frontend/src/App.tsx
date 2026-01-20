@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css';
+import { Chat } from './Chat'
 import axios from 'axios'
 
 // On définit la forme d'un article pour que TS nous aide
@@ -15,6 +16,7 @@ function App() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
+  
   // 1. Charger les articles au démarrage
   const fetchPosts = async () => {
     try {
@@ -70,6 +72,14 @@ function App() {
       <h1>Blog Nest + ReactJS CRUD system</h1>
 
       {/* Formulaire d'ajout */}
+      <hr style={{ margin: '40px 0', opacity: 0.2 }} />
+
+      {/* On appelle le composant ici */}
+      <section>
+        <h2>Chat en temps réel</h2>
+        <Chat />
+      </section>
+      
       <form onSubmit={handleSubmit} className="post-form" >
         <h3>Nouvel Article</h3>
         <input 
